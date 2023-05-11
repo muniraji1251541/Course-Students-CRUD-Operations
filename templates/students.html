@@ -1,0 +1,16 @@
+{% extends 'dummy.html' %} {% block title %}
+<title>Students</title>
+{% endblock %} {% block content %}
+<div class="container">
+    <div class="my-3">
+        <div class="col-6">
+            <h2>{{cou}} Students List</h2>
+            <hr> {% if stu %} {% for st in stu %}
+            <h3><a href="{% url 'student_details' c_name st.id %}">{{st.sname}}</a></h3>
+            {% endfor %} {% else %}
+            <h3>Students not available</h3>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

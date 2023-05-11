@@ -1,0 +1,22 @@
+{% extends 'dummy.html' %} {% block title %}
+<title>Course</title>
+{% endblock %} {% block content %}
+<div class="container">
+    <div class="my-3">
+        <div class="col-6">
+            {% for msg in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{msg}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            {% endfor %}
+            <h2>Course Lists Are</h2>
+            <hr> {% for co in data %}
+            <h3><a href="{% url 'students' co.pk %}">{{co.cname}}</a></h3>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
